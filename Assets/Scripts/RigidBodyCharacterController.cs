@@ -8,14 +8,21 @@ public class RigidBodyCharacterController : MonoBehaviour
     private float accelerationforce = 10;
 
     [SerializeField]
-    private float MaxSpeed = 5;
+    private float MaxSpeed = 2;
 
     [SerializeField]
     private PhysicMaterial StoppingPhysicsMaterial, MovingPhysicsMaterial;
 
+    [SerializeField]
+    [Range(0, 1)]
+    [Tooltip("0 = no turning. 1 = instant turning")]
+    private float turnspeed = 0.1f;
+
+
     private new Rigidbody rigidbody;
     private Vector2 input;
     private new Collider collider;
+
 
     private void Start()
     {
@@ -52,8 +59,13 @@ public class RigidBodyCharacterController : MonoBehaviour
         if (rigidbody.velocity.magnitude < MaxSpeed)
         {
             rigidbody.AddForce(cameraRelativeInputDirection * accelerationforce, ForceMode.Acceleration);
-        }    
+        }
 
+        if (cameraRelativeInputDirection.magnitude > 0)
+        {
+            var targetRotation = Quaternion.LookRotation(cameraRelativeInputDirection);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, turnspeed);
+        }
     }
 
     private void Update()
