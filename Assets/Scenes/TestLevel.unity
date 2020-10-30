@@ -891,7 +891,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007299396}
-  m_LocalRotation: {x: 0.1541088, y: 0.25277334, z: -0.040819842, w: 0.95430076}
+  m_LocalRotation: {x: 0.15410879, y: 0.25277337, z: -0.040819842, w: 0.95430076}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1050,7 +1050,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118964659}
-  m_LocalRotation: {x: 0.15410875, y: 0.25277334, z: -0.04082004, w: 0.9543007}
+  m_LocalRotation: {x: 0.15410872, y: 0.2527734, z: -0.040820036, w: 0.9543007}
   m_LocalPosition: {x: 6.7575855, y: 4.44, z: 2.3088446}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1101,6 +1101,8 @@ GameObject:
   - component: {fileID: 1159156613}
   - component: {fileID: 1159156615}
   - component: {fileID: 1159156614}
+  - component: {fileID: 1159156617}
+  - component: {fileID: 1159156616}
   m_Layer: 5
   m_Name: Contextual Message Text
   m_TagString: Untagged
@@ -1223,6 +1225,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159156612}
   m_CullTransparentMesh: 0
+--- !u!225 &1159156616
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159156612}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1159156617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159156612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb6dc5b620fa544a89a646c6fec4796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1212127499
 GameObject:
   m_ObjectHideFlags: 3
@@ -2956,7 +2982,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112130433}
-  m_LocalRotation: {x: 0.13677102, y: 0.2534723, z: -0.036227435, w: 0.95693946}
+  m_LocalRotation: {x: 0.13677102, y: 0.25347227, z: -0.03622743, w: 0.95693946}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
