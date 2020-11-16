@@ -6,11 +6,10 @@ using UnityEngine;
 public class ContextualMessageTrigger : MonoBehaviour
 {
     [SerializeField]
-    private string message = "Placeholder";
-    [SerializeField]
     private float duration = 1.0f;
-   
-
+    [SerializeField]
+    [TextArea(3, 5)]
+    private string message = "Placeholder";
 
 
     public static event Action<string, float> ContextualMessageTriggered;
