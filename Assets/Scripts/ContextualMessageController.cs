@@ -5,7 +5,8 @@ using TMPro;
 
 public class ContextualMessageController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private float fadeOutDuration;
 
     private CanvasGroup canvasGroup;
     private TMP_Text messageText;
@@ -25,11 +26,21 @@ public class ContextualMessageController : MonoBehaviour
         messageText.text = message;
         //wait for the duration
         yield return new WaitForSeconds(duration);
+        //start fading out
+        float fadeelapsedTime = 0;
+        float fadeStartTime = Time.time;
+        while(fadeelapsedTime < fadeOutDuration)
+        {
+            fadeelapsedTime = Time.time - fadeStartTime;
+            canvasGroup.alpha = 1 - fadeelapsedTime / fadeOutDuration;
+            yield return null;
+        }
         canvasGroup.alpha = 0;
     }
 
     private void OnContextualMessageTriggered(string message, float duration)
     {
+        StopAllCoroutines();
         StartCoroutine(ShowMessage(message, duration));
 
     }
