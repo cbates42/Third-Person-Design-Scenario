@@ -5,10 +5,10 @@ using UnityEngine;
 public class RigidBodyCharacterController : MonoBehaviour
 {
     [SerializeField]
-    private float accelerationforce = 10;
+    private float accelerationForce = 10f;
 
     [SerializeField]
-    private float MaxSpeed = 2;
+    private float maxSpeed = 2;
 
     [SerializeField]
     private PhysicMaterial StoppingPhysicsMaterial, MovingPhysicsMaterial;
@@ -32,7 +32,7 @@ public class RigidBodyCharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var InputDirection = new Vector3(input.x, 0, input.y);
+        Vector3 InputDirection = new Vector3(input.x, 0, input.y);
 
         Vector3 cameraFlattenedForward = Camera.main.transform.forward;
         cameraFlattenedForward.y = 0;
@@ -40,10 +40,9 @@ public class RigidBodyCharacterController : MonoBehaviour
 
         Vector3 cameraRelativeInputDirection = cameraRotation * InputDirection;
 
-        if(rigidbody.velocity.magnitude < MaxSpeed)
+        if (rigidbody.velocity.magnitude < maxSpeed)
         {
-            rigidbody.AddForce(InputDirection * accelerationforce);
-
+            rigidbody.AddForce(cameraRelativeInputDirection * accelerationForce, ForceMode.Acceleration);
         }
 
         if (InputDirection.magnitude > 0)
@@ -56,11 +55,6 @@ public class RigidBodyCharacterController : MonoBehaviour
             collider.material = StoppingPhysicsMaterial;
         }   
         
-        if (rigidbody.velocity.magnitude < MaxSpeed)
-        {
-            rigidbody.AddForce(cameraRelativeInputDirection * accelerationforce, ForceMode.Acceleration);
-        }
-
         if (cameraRelativeInputDirection.magnitude > 0)
         {
             var targetRotation = Quaternion.LookRotation(cameraRelativeInputDirection);
