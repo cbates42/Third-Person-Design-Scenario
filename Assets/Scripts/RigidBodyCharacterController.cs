@@ -42,11 +42,15 @@ public class RigidBodyCharacterController : MonoBehaviour
         RotateToFaceMoveInputDirection(cameraRelativeInputDirection);
     }
 
-    private void RotateToFaceMoveInputDirection(Vector3 cameraRelativeInputDirection)
+    /// <summary>
+    /// Turn the character to face the direction it wants to move in.
+    /// </summary>
+    /// <param name="cameraRelativeInputDirection"></param>
+    private void RotateToFaceMoveInputDirection(Vector3 movementDirection)
     {
-        if (cameraRelativeInputDirection.magnitude > 0)
+        if (movementDirection.magnitude > 0)
         {
-            var targetRotation = Quaternion.LookRotation(cameraRelativeInputDirection);
+            var targetRotation = Quaternion.LookRotation(movementDirection);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, turnspeed);
         }
     }
